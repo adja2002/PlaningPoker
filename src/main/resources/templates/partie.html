@@ -10,5 +10,12 @@
 <ul>
     <li th:each="joueur : ${partie.joueurs}" th:text="${joueur.pseudo}"></li>
 </ul>
+
+<h2>Charger le backlog</h2>
+<p th:if="${erreur}" th:text="${erreur}" style="color: red;"></p>
+<form action="/backlog" method="post" enctype="multipart/form-data">
+    <input type="file" name="fichier" accept=".json" required>
+    <button type="submit">Charger</button>
+</form>
 </body>
 </html>
