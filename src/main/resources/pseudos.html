@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>CAPI</title>
+</head>
+<body>
+<h1>Pseudos des joueurs</h1>
+<form action="/partie" method="post">
+    <div th:each="i : ${#numbers.sequence(1, nombreJoueurs)}">
+        <label>Joueur <span th:text="${i}"></span> :
+            <input type="text" name="pseudos" required>
+        </label>
+    </div>
+    <button type="submit">Créer la partie</button>
+</form>
+</body>
+</html>

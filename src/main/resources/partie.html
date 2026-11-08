@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>CAPI</title>
+</head>
+<body>
+<h1>Partie créée</h1>
+<p><span th:text="${partie.nombreJoueurs}"></span> joueurs :</p>
+<ul>
+    <li th:each="joueur : ${partie.joueurs}" th:text="${joueur.pseudo}"></li>
+</ul>
+</body>
+</html>
