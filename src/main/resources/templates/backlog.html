@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>CAPI</title>
+</head>
+<body>
+<h1 th:text="${backlog.projet}"></h1>
+<p><span th:text="${backlog.fonctionnalites.size()}"></span> fonctionnalités à estimer.</p>
+
+<h2>Fonctionnalité à estimer</h2>
+<p>
+    <strong th:text="${fonctionnalite.id}"></strong> :
+    <span th:text="${fonctionnalite.titre}"></span>
+</p>
+</body>
+</html>

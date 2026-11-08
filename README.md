@@ -23,3 +23,32 @@ L'application reste ouverte sur http://localhost:8080 ; l'arrêter avec Ctrl + C
 ./mvn test
 ``
 sous Windows (invite de commande) : `mvnw.cmd test`
+
+## Utilisation
+1. Ouvrir http://localhost:8080
+2. Saisir le nombre de joueurs, puis leurs pseudos
+3. Charger un backlog JSON : le projet et la première fonctionnalité à estimer s'affichent
+
+## Format du backlog (JSON)
+
+Le backlog à estimer est un fichier JSON de cette forme (exemple : `exemples/backlog.json`) :
+
+```json
+{
+  "projet": "Bibliothèque en ligne",
+  "fonctionnalites": [
+    { "id": "F1", "titre": "Rechercher un livre par titre" },
+    { "id": "F2", "titre": "Emprunter un livre disponible" }
+  ]
+}
+```
+
+- `projet` : nom du projet estimé
+- `fonctionnalites` : liste des fonctionnalités, chacune avec un `id` et un `titre`
+- Un fichier invalide ou un backlog sans fonctionnalité est refusé avec un message d'erreur.
+
+## Organisation du code
+- `src/main/java/.../jeu` : logique du jeu (joueurs, partie, backlog), testable sans interface
+- `src/main/java/.../web` : interface web (contrôleur)
+- `src/main/resources/templates` : pages HTML
+- `rendus/` : rendus du projet (R0, R1…)
