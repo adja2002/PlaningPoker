@@ -1,0 +1,28 @@
+# nom du workflow
+name: CI
+
+# lance la CI a chaque push sur main et à chaque pull request vers main
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+# empéche la CI de modifier le code (mesure de securité)
+permissions:
+  contents: read
+# crée un travail nommé test
+jobs:
+  test:
+    runs-on: ubuntu-latest # CI tournera sur lInux forni par github pas sur notre pc
+    steps:
+      - uses: actions/checkout@v4 #recupére le code du dépot sur la machine de github
+
+      - uses: actions/setup-java@v4  # installe Java 21 sur la machine de GitHub ; cache: maven garde les dépendances téléchargées pour accélérer les lancements suivants
+        with:
+          distribution: temurin
+          java-version: "21"
+          cache: maven
+
+      - run: chmod +x mvnw # rend le fichier mvnw exécutable (cette permission se perd sous Windows)
+
+      - run: ./mvnw -B test # lance tous les tests ; si un test échoue, la CI devient rouge. -B rend l'affichage plus lisible dans les journaux
