@@ -39,3 +39,10 @@ Fichier d'instructions pour agent versionné (`CLAUDE.md`, `AGENTS.md`...) : non
 - Nombre d'entrées et de propositions rejetées ou corrigées :
 - Tâches où l'IA a fait gagner du temps :
 - Tâches où l'IA a fait perdre du temps :
+
+### 2026-11-21 : workflow d'intégration continue GitHub Actions (configuration)
+
+- **Demande (résumé fidèle)** : fichier GitHub Actions pour Java 21 et Maven, déclenché sur push et pull request vers main, qui lance `./mvnw test`.
+- **Résultat** : modifié.
+- **Ce que nous avons vérifié** : exécution de la CI sur la pull request, lecture de chaque ligne.
+- **Ce que nous avons changé ou rejeté, et pourquoi** : commentaires du YAML écrits par nous ; ajout de `chmod +x mvnw`, nécessaire pour lancer Maven sous Linux.
