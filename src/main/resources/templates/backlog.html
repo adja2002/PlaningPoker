@@ -1,9 +1,13 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <title>CAPI</title>
 </head>
+<form action="/vote" method="get">
+    <button type="submit">Commencer le vote</button>
+</form>
 <body>
 <h1 th:text="${backlog.projet}"></h1>
 <p><span th:text="${backlog.fonctionnalites.size()}"></span> fonctionnalités à estimer.</p>
