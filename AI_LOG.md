@@ -53,3 +53,10 @@ Fichier d'instructions pour agent versionné (`CLAUDE.md`, `AGENTS.md`...) : non
 - **Résultat** : modifié.
 - **Ce que nous avons vérifié** : `./mvnw test` (11 tests passés) et essai manuel avec 2 joueurs (votes cachés, révélation, nouveau tour).
 - **Ce que nous avons changé ou rejeté, et pourquoi** : `getPseudo()` remplacé par `pseudo()` (Joueur est un record) ; code collé par erreur dans de mauvais fichiers, corrigé ; 404 sur `/vote` corrigée en mettant à jour `PartieController`.
+
+### 2026-11-22 : implémentation du moteur de règles (US-03, US-04, US-05)
+
+- **Demande (résumé fidèle)** : aide à l'implémentation en Java du moteur de règles du Planning Poker, avec unanimité au premier tour, règle stricte et médiane à partir du deuxième tour.
+- **Résultat** : modifié.
+- **Ce que nous avons vérifié** : `./mvnw test` (19 tests réussis, BUILD SUCCESS) et exécution de la CI GitHub Actions.
+- **Ce que nous avons changé ou rejeté, et pourquoi** : utilisation d'une liste triée pour calculer la médiane ; choix de la valeur centrale supérieure en cas de nombre pair de votes ; prise en compte de la carte `1/2`. La sauvegarde avec la carte café reste à implémenter.
