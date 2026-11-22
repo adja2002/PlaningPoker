@@ -19,7 +19,7 @@ public class MoteurRegles {
             throw new IllegalArgumentException("Liste de votes vide");
         }
 
-        // Les cartes speciales ne permettent pas de valider une estimation
+        // Les cartes speciales demandent un nouveau tour
         if (votes.contains("?") || votes.contains("café")) {
             return new Resultat(false, null);
         }
@@ -39,10 +39,11 @@ public class MoteurRegles {
             if (memeVote) {
                 return new Resultat(true, votes.get(0));
             }
+
             return new Resultat(false, null);
         }
 
-        // Deuxieme tour avec la regle mediane
+        // A partir du deuxieme tour, appliquer la mediane
         List<Double> nombres = new ArrayList<>();
 
         for (String vote : votes) {
@@ -55,7 +56,7 @@ public class MoteurRegles {
 
         Collections.sort(nombres);
 
-        // Pour un nombre pair, prendre la valeur centrale la plus haute
+        // Prendre la valeur centrale la plus haute si le nombre est pair
         int milieu = nombres.size() / 2;
         double mediane = nombres.get(milieu);
 
