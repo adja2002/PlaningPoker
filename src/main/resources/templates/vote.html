@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>CAPI</title>
+</head>
+<body>
+<h1>Au tour de <span th:text="${joueur.pseudo}"></span></h1>
+<p>Fonctionnalité : <strong th:text="${fonctionnalite.titre}"></strong></p>
+<p>Choisissez votre carte. Les autres joueurs ne la verront qu'à la révélation.</p>
+<form action="/vote" method="post">
+    <button th:each="carte : ${cartes}" type="submit" name="carte"
+            th:value="${carte}" th:text="${carte}"></button>
+</form>
+</body>
+</html>

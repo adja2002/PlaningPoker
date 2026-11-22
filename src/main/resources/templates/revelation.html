@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>CAPI</title>
+</head>
+<body>
+<h1>Révélation des votes</h1>
+<p>Fonctionnalité : <strong th:text="${fonctionnalite.titre}"></strong></p>
+<table border="1">
+    <tr><th>Joueur</th><th>Carte</th></tr>
+    <tr th:each="carte, etat : ${votes}">
+        <td th:text="${joueurs[etat.index].pseudo}"></td>
+        <td th:text="${carte}"></td>
+    </tr>
+</table>
+<form action="/nouveau-tour" method="post">
+    <button type="submit">Nouveau tour</button>
+</form>
+</body>
+</html>

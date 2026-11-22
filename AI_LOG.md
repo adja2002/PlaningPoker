@@ -46,3 +46,10 @@ Fichier d'instructions pour agent versionné (`CLAUDE.md`, `AGENTS.md`...) : non
 - **Résultat** : modifié.
 - **Ce que nous avons vérifié** : exécution de la CI sur la pull request, lecture de chaque ligne.
 - **Ce que nous avons changé ou rejeté, et pourquoi** : commentaires du YAML écrits par nous ; ajout de `chmod +x mvnw`, nécessaire pour lancer Maven sous Linux.
+- 
+### 2026-11-21 : vote caché puis révélation (US-02)
+
+- **Demande (résumé fidèle)** : code pour que chaque joueur vote à tour de rôle sur le même écran, sans voir les votes des autres, puis révélation ; logique dans la classe `Tour` (package `jeu`) et tests JUnit.
+- **Résultat** : modifié.
+- **Ce que nous avons vérifié** : `./mvnw test` (11 tests passés) et essai manuel avec 2 joueurs (votes cachés, révélation, nouveau tour).
+- **Ce que nous avons changé ou rejeté, et pourquoi** : `getPseudo()` remplacé par `pseudo()` (Joueur est un record) ; code collé par erreur dans de mauvais fichiers, corrigé ; 404 sur `/vote` corrigée en mettant à jour `PartieController`.
